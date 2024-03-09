@@ -126,6 +126,21 @@ class DLL:
 
             return None
         
+    def reverse_linked_list(self):
+        if not self.start:
+            pass
+        else:
+            temp = self.start
+            last = None
+            while temp:
+                last = temp.prev
+                temp.prev = temp.next
+                temp.next = last
+                temp = temp.prev
+
+            self.start = last.prev
+
+        
     def __iter__(self):
         return DLLIterator(self.start)
         
@@ -148,16 +163,16 @@ class DLLIterator:
 if __name__ == "__main__":
     obj = DLL()
     # obj.display()
-    # obj.insert_at_start(89)
-    # obj.insert_at_start(990)
-    # obj.insert_at_start(3489)
+    obj.insert_at_start(89)
+    obj.insert_at_start(990)
+    obj.insert_at_start(3489)
     # obj.display()
     # print(obj.count_items())
 
-    # obj.insert_at_end(666)
-    # obj.insert_at_end(444)
-    # obj.insert_at_end(888)
-    # obj.display()
+    obj.insert_at_end(666)
+    obj.insert_at_end(444)
+    obj.insert_at_end(888)
+    obj.display()
     # print(obj.count_items())
 
     # obj.display()
@@ -169,10 +184,15 @@ if __name__ == "__main__":
 
     # obj.delete_at_end()
 
-    obj.delete_item(89)
-    obj.display()
-    print(obj.count_items())
+    # obj.delete_item(89)
+    # obj.display()
+    # print(obj.count_items())
 
 
-    for i in obj:
-        print(i)
+    # for i in obj:
+    #     print(i)
+
+
+# Write a function to Reverse Doubly Linked List
+obj.reverse_linked_list()
+obj.display()
